@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>OAT DESENVOLVIMENTO FRONT END - SAMUHEL A.</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+    .box { border: 2px solid #ccc; border-radius: 8px; padding: 20px; margin: 20px auto; width: 300px; background: #f9f9f9; }
+    button { margin-top: 10px; padding: 8px 12px; cursor: pointer; }
+    input { margin: 5px; padding: 5px; width: 80%; }
+    table { margin: auto; border-collapse: collapse; }
+    td, th { border: 1px solid #ddd; padding: 6px; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Tabuada</h2>
+    <input type="number" id="numeroTabuada" placeholder="Digite um número">
+    <button onclick="gerarTabuada()">Gerar</button>
+    <div id="resultadoTabuada"></div>
+  </div>
+
+  <script>
+    function gerarTabuada() {
+      
+      const numero = parseInt(document.getElementById('numeroTabuada').value);
+      const resultadoDiv = document.getElementById('resultadoTabuada');
+      
+      
+      resultadoDiv.innerHTML = '';
+      
+      
+      if (isNaN(numero)) {
+        resultadoDiv.innerHTML = '<p style="color: red;">Por favor, digite um número válido!</p>';
+        return;
+      }
+      
+      
+      let tabela = '<table>';
+      tabela += '<tr><th>Operação</th><th>Resultado</th></tr>';
+      
+      for (let i = 1; i <= 10; i++) {
+        const resultado = numero * i;
+        tabela += `<tr><td>${numero} × ${i}</td><td>${resultado}</td></tr>`;
+      }
+      
+      tabela += '</table>';
+      resultadoDiv.innerHTML = tabela;
+    }
+  </script>
+
+</body>
+</html>
